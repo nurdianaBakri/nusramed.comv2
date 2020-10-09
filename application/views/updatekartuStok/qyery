@@ -1,0 +1,8 @@
+
+<?php 
+                        $obat = $this->db->query("SELECT no_batch, barcode, DATE(tgl_exp) as tgl_exp, id_detail_obat, no_faktur from detail_obat where barcode = '".$barcode."' group by no_batch")->result_array(); ?>
+                        <select name="id_detail_obat[]" class="form-control" required id="barcode"> 
+                          <?php foreach ($obat as $ke3) { ?>
+                            <option value="<?=$ke3['barcode']?>"><?=$ke3['no_batch']." / ".$ke3['tgl_exp']?></option>
+                          <?php } ?>
+                        </select> 
